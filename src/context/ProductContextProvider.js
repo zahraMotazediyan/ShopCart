@@ -5,8 +5,12 @@ import {getProducts} from "../services/api";
 const ProductContextProvider = () => {
 
     useEffect(()=>{
+
+    },[])
+
+const fetchAPI =()=>{
         
-    })
+}
 
     return (
         <div>
