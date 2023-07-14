@@ -4,12 +4,13 @@ import {getProducts} from "../services/api";
 
 const ProductContextProvider = () => {
 
+    const [product,setProduct]=useState([]);
     useEffect(()=>{
 
     },[])
 
-const fetchAPI =()=>{
-        
+const fetchAPI =async()=>{
+        setProduct(await getProducts())
 }
 
     return (
