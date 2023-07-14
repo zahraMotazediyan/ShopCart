@@ -1,7 +1,18 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 
 import {getProducts} from "../services/api";
 
-const productContextProvider =() =>{
-    
+const ProductContextProvider = () => {
+
+    useEffect(()=>{
+        
+    })
+
+    return (
+        <div>
+
+        </div>
+    )
 }
+
+export default ProductContextProvider;
