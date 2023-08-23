@@ -33,6 +33,9 @@ const Product = ({productData}) => {
                             alt="trash"/>
                         </button>
                     }
+                    {
+                        
+                    }
 
                     {
                         isInCart(state, productData.id) ?
