@@ -1,24 +1,27 @@
- import React, {useContext} from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
 
 //context
 import {ProductsContext} from "../../context/ProductContextProvider";
 
-const ProductDatails = (props) => {
+//Css
+import styles from "../../css/ProductDetails.module.css";
+
+const ProductDetails = (props) => {
     const id = props.match.params.id
     const data = useContext(ProductsContext);
     const product = data[id - 1];
     const {image, title, description, category, price} = product;
 
     return (
-        <div>
-            <img src={image} alt="product"/>
+        <div className={styles.container}>
+            <img className={styles.image} src={image} alt="product"/>
             <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <p><span>Category: </span>{category}</p>
-                <div>
-                    <span>{price} $</span>
+                <h3 className={styles.textContainer}>{title}</h3>
+                <p className={styles.description}>{description}</p>
+                <p className={styles.category}><span>Category: </span>{category}</p>
+                <div className={styles.buttonContainer}>
+                    <span className={styles.price}>{price} $</span>
                     <Link to="/products">Back to shop</Link>
                 </div>
             </div>
@@ -26,4 +29,4 @@ const ProductDatails = (props) => {
     )
 }
 
-export default ProductDatails;
+export default ProductDetails;
