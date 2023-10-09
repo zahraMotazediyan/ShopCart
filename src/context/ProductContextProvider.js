@@ -2,7 +2,6 @@ import React, {useState, useEffect, createContext} from "react";
 //API
 import {getProducts} from "../services/api";
 
-
 export const ProductsContext = createContext();
 
 const ProductContextProvider = ({children}) => {
@@ -18,11 +17,13 @@ const ProductContextProvider = ({children}) => {
     }, []);
 
 
-    return (<div>
-        <ProductsContext.Provider value={products}>
-            {children}
-        </ProductsContext.Provider>
-    </div>)
+    return (
+        <div>
+            <ProductsContext.Provider value={products}>
+                {children}
+            </ProductsContext.Provider>
+        </div>
+    )
 }
 
 export default ProductContextProvider;

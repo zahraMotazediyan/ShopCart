@@ -1,9 +1,12 @@
 import './App.css';
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 
 //components
 import Store from "./components/Store";
-import ProductDatails from "./components/shared/ProductDatails";
+import ProductDetails from "./components/shared/ProductDatails";
+import Navbar from "./components/shared/Navbar";
+import ShopCart from "./components/ShopCart";
+
 
 //context
 import ProductContextProvider from "./context/ProductContextProvider";
@@ -13,11 +16,13 @@ function App() {
     return (
         <ProductContextProvider>
             <CartContextProvider>
-                <Switch>
-                    <Route path="/products/:id" component={ProductDatails}/>
-                    <Route path="/products" component={Store}/>
-                    <Redirect to="/products"/>
-                </Switch>
+                <Navbar/>
+                <Routes>
+                    <Route path="/products/:id" element={<ProductDetails/>}/>
+                    <Route path="/products" element={<Store/>}/>
+                    <Route path="/cart" element={<ShopCart/>}/>
+                    <Route path="/*" element={<Navigate to="/products"/>}/>
+                </Routes>
             </CartContextProvider>
         </ProductContextProvider>
     );

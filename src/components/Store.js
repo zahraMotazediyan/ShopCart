@@ -6,17 +6,20 @@ import Product from "./shared/Product";
 //context
 import {ProductsContext} from "../context/ProductContextProvider";
 
+//Css
+import styles from "../css/Store.module.css";
+
 const Store = () => {
-console.log("store")
     const products = useContext(ProductsContext);
 
     return (
-        <div style={{display: "flex", flexWrap: "wrap" ,justifyContent:"space-between "}}>
+        <div className={styles.container}>
             {
                 products.map(product => <Product
-                    key={product.id}
-                    productData={product}
-                />)
+                        key={product.id}
+                        productData={product}
+                    />
+                )
             }
         </div>
     )
